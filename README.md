@@ -4,8 +4,8 @@ This project is a web application for booking movie tickets, designed to provide
 
 ## Tech Stack
   * Front-end: (React)
-  * Back-end: Any (Node.js)
-  * Database: Any (MongoDB)
+  * Back-end:(Node.js)
+  * Database:(MongoDB)
 ## Types of Users
   * User
   * Admin
