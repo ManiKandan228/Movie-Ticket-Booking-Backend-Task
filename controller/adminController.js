@@ -1,6 +1,7 @@
 const bookingModel = require('../models/bookingModel')
 const initialBookingData = require('../data/initialBookingData')
 const initialData = require('../data/initialData')
+const movieModel = require('../models/movieModel')
 
 const getAllDetails = async(request,response) =>
 {
@@ -44,6 +45,16 @@ const addNewTheatre = async(request,response)=>
         return response.status(200).send({message : error.message})
     }
 }
+const deleteTheatre = async (request, response) => {
+    try {
+        const { theatre } = request.params;
+        await bookingModel.findOneAndDelete({ theatre });
+        response.status(200).send({ message: 'Theatre removed' });
+    } catch (err) {
+        response.status(500).send(err);
+    }
+}
+
 
 const addNewMovie = async(request,response)=>
 {
@@ -59,6 +70,15 @@ const addNewMovie = async(request,response)=>
     catch(error)
     {
         return response.status(200).send({message : error.message})
+    }
+}
+const deleteMovie = async (request, response) => {
+    try {
+        const { title } = request.params;
+        await movieModel.findOneAndDelete({ title });
+        response.status(200).send({ message: 'Movie removed' });
+    } catch (err) {
+        response.status(500).send(err);
     }
 }
 
@@ -83,4 +103,5 @@ const getAllbookings = async(request,response)=>
     }
 }
 
-module.exports = {getAllDetails,addNewTheatre,addNewMovie,getAllbookings}
+
+module.exports = {getAllDetails,addNewTheatre,deleteTheatre,addNewMovie,getAllbookings}

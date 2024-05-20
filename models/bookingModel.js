@@ -6,6 +6,16 @@ const bookingModel = mongoose.Schema({
         type : String,
         required : true
     },
+    userId:{
+        type:Number,
+        required:true,
+        unique:true
+    },
+    seatNumber:{
+        type:Number,
+        required:true,
+        unique:true
+    },
     location : 
     {
         type : String,
